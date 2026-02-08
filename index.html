@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#6c63ff;
+      --dark:#0f172a;
+      --light:#f8fafc;
+      --accent:#22d3ee;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(120deg,#0f172a,#020617);
+      color:var(--light);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+    header{
+      position:fixed;
+      top:0;left:0;
+      width:100%;
+      background:rgba(15,23,42,0.7);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+    nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 20px;
+    }
+    nav h1{
+      font-size:1.5rem;
+      font-weight:700;
+      color:var(--accent);
+    }
+    nav ul{
+      display:flex;
+      gap:20px;
+      list-style:none;
+    }
+    nav ul li a{
+      color:#e5e7eb;
+      text-decoration:none;
+      font-size:0.95rem;
+      position:relative;
+    }
+    nav ul li a::after{
+      content:'';
+      position:absolute;
+      left:0;bottom:-5px;
+      width:0;height:2px;
+      background:var(--accent);
+      transition:0.3s;
+    }
+    nav ul li a:hover::after{width:100%;}
+
+    /* HERO */
+    section{
+      padding:100px 20px;
+    }
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .hero h2{
+      font-size:3rem;
+      margin-bottom:10px;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .hero p{
+      max-width:700px;
+      margin:auto;
+      color:#cbd5f5;
+    }
+    .btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:12px 30px;
+      border-radius:30px;
+      background:linear-gradient(90deg,var(--primary),var(--accent));
+      color:#020617;
+      font-weight:600;
+      text-decoration:none;
+      transition:transform 0.3s;
+    }
+    .btn:hover{transform:scale(1.05);}
+
+    /* ABOUT */
+    .about{
+      max-width:1100px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+    .about-card{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.3);
+    }
+    .about h3{
+      font-size:2rem;
+      margin-bottom:15px;
+      color:var(--accent);
+    }
+    .about p{
+      color:#d1d5db;
+    }
+
+    /* SKILLS */
+    .skills{
+      max-width:1000px;
+      margin:auto;
+      text-align:center;
+    }
+    .skill-grid{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:25px;
+    }
+    .skill{
+      background:rgba(255,255,255,0.06);
+      padding:25px;
+      border-radius:18px;
+      transition:0.3s;
+    }
+    .skill:hover{
+      transform:translateY(-10px);
+      background:rgba(34,211,238,0.15);
+    }
+
+    /* PROJECTS */
+    .projects{
+      max-width:1100px;
+      margin:auto;
+    }
+    .project-grid{
+      margin-top:40px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+    .project{
+      background:rgba(255,255,255,0.05);
+      padding:25px;
+      border-radius:20px;
+      position:relative;
+      overflow:hidden;
+    }
+    .project::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg,transparent,var(--accent),transparent);
+      opacity:0;
+      transition:0.4s;
+    }
+    .project:hover::before{opacity:0.15;}
+
+    /* CONTACT */
+    .contact{
+      max-width:800px;
+      margin:auto;
+      text-align:center;
+    }
+    .contact form{
+      margin-top:30px;
+      display:grid;
+      gap:20px;
+    }
+    .contact input,.contact textarea{
+      padding:14px;
+      border-radius:12px;
+      border:none;
+      outline:none;
+      background:#020617;
+      color:#e5e7eb;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#020617;
+      color:#94a3b8;
+    }
+
+    @media(max-width:768px){
+      .about{grid-template-columns:1fr;}
+      .hero h2{font-size:2.2rem;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <h1>MyPortfolio</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>Turning Ideas Into Digital Reality</h2>
+    <p>A unique portfolio crafted with modern design, smooth animations, and a creative mindset.</p>
+    <a href="#projects" class="btn">Explore My Work</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div class="about-card">
+      <h3>About Me</h3>
+      <p>
+        My name is <strong>Shreyash Rajendra Lagad</strong>, a dedicated <strong>Computer Science student</strong> at <strong>Abasaheb Garware College</strong> with a strong passion for building modern, scalable, and user‑centric web applications.
+        <br><br>
+        I am an aspiring <strong>Full Stack Developer</strong> who enjoys working across the entire web stack — from designing clean, responsive user interfaces to implementing logical, efficient backend solutions. I believe in writing code that is not only functional but also readable, maintainable, and future‑ready.
+        <br><br>
+        This portfolio reflects my learning journey, creativity, and technical growth, and it is designed as a professional showcase suitable for academic evaluation as well as industry opportunities.
+      </p>
+    </div>
+    <div class="about-card">
+      <h3>My Philosophy</h3>
+      <p>
+        Code is not just syntax — it's storytelling. Every line should solve a problem and feel elegant.
+        I focus on simplicity, performance, and creativity.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="skills">
+    <h3 style="font-size:2rem;color:var(--accent)">Skills</h3>
+    <div class="skill-grid">
+      <div class="skill">HTML5 & Semantic Design</div>
+      <div class="skill">CSS3 / Animations / Responsive UI</div>
+      <div class="skill">JavaScript (ES6+)</div>
+      <div class="skill">Creative UI/UX Thinking</div>
+      <div class="skill">Problem Solving</div>
+      <div class="skill">Project Architecture</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="projects">
+    <h3 style="font-size:2rem;color:var(--accent)">Projects</h3>
+    <div class="project-grid">
+      <div class="project">
+        <h4>Bike Showroom Management Website</h4>
+        <p>
+          A full‑stack web application designed to manage bike showroom operations digitally. The system includes bike listings, specifications display, enquiry handling, and an admin‑friendly structure.
+          <br><br>
+          <strong>Tech Used:</strong> HTML, CSS, JavaScript (expandable to backend integration)
+        </p>
+      </div>
+      <div class="project">
+        <h4>Personal Portfolio Website</h4>
+        <p>
+          A responsive and animated portfolio website built to showcase personal skills, projects, and contact information. Designed with modern UI trends like glassmorphism and smooth scrolling.
+          <br><br>
+          <strong>Focus:</strong> UI/UX, responsiveness, animations
+        </p>
+      </div>
+      <div class="project">
+        <h4>GitHub Project Repository</h4>
+        <p>
+          A collection of academic and self‑learning projects demonstrating problem‑solving skills, logical thinking, and continuous learning in computer science and web development.
+          <br><br>
+          <strong>Platform:</strong> GitHub
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <h3 style="font-size:2rem;color:var(--accent)">Contact Me</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 | Designed & Built with ❤️</p>
+</footer>
+
+<script>
+  // Smooth scroll effect
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
